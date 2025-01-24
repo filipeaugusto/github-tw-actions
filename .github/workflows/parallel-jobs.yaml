@@ -1,0 +1,36 @@
+name: parallel-jobs
+run-name: Jobs Paralelos
+
+on:
+    - push
+
+jobs:
+    test-aplication:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run lint
+              run: echo "Run linter"
+
+            - name: Run tests
+              run: echo "Run tests"
+
+    build-for-linux:
+        runs-on: ubuntu-latest
+        needs: test-aplication
+        steps:
+          - name: Build for linux
+            run: echo "Run build linux"
+
+    build-for-windows:
+        runs-on: windows-latest
+        needs: test-aplication
+        steps:
+          - name: Build for windows
+            run: Write-Output "Run build windows"
+
+    build-for-mac:
+        runs-on: macos-latest
+        needs: test-aplication
+        steps:
+          - name: Build for mac
+            run: echo "Run build mac"            
