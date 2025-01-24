@@ -1,0 +1,11 @@
+name: first-workflow
+run-name: Primerio Workflow
+on:
+    - push
+jobs: 
+    run-shell-commands:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Hello World
+              run: echo "Hello World"
+    
