@@ -6,7 +6,7 @@ on:
 
 jobs:
     test-aplication:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         steps:
             - name: Run lint
               run: echo "Run linter"
@@ -15,21 +15,21 @@ jobs:
               run: echo "Run tests"
 
     build-for-linux:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         needs: test-aplication
         steps:
           - name: Build for linux
             run: echo "Run build linux"
 
     build-for-windows:
-        runs-on: windows-latest
+        runs-on: windows-2022
         needs: test-aplication
         steps:
           - name: Build for windows
             run: Write-Output "Run build windows"
 
     build-for-mac:
-        runs-on: macos-latest
+        runs-on: macos-12
         needs: test-aplication
         steps:
           - name: Build for mac
